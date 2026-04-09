@@ -37,4 +37,13 @@ public class VeiculoController {
         service.adicionarAcessorio(idVeiculo, idAcessorio);
         return ResponseEntity.ok("Adicionado com sucesso!");
     }
+
+    @PostMapping("/removerAcessorio/{idVeiculo}/{idAcessorio}")
+    public ResponseEntity<String> removerAcessorio(
+            @PathVariable Long idVeiculo,
+            @PathVariable Long idAcessorio
+    ){
+        service.removerAcessorio(idVeiculo, idAcessorio);
+        return ResponseEntity.ok("Acessório removido com sucesso!");
+    }
 }

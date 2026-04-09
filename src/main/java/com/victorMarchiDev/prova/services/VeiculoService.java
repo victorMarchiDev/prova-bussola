@@ -27,6 +27,8 @@ public class VeiculoService {
                 .orElseThrow();
 
         veiculo.setAcessorio(null);
+
+        veiculoRepo.save(veiculo);
     }
 
     public void criarVeiculo(Veiculo veiculo){
@@ -39,6 +41,7 @@ public class VeiculoService {
         Acessorio acessorio = acessorioRepo.findById(idAcessorio)
                         .orElseThrow();
         veiculo.setAcessorio(acessorio);
+        veiculoRepo.save(veiculo);
     }
 
     public List<Veiculo> listarVeiculos() {
