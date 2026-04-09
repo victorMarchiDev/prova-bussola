@@ -33,10 +33,11 @@ public class VeiculoService {
         veiculoRepo.save(veiculo);
     }
 
-    public void adicionarAcessorio(Long idVeiculo, String nomeAcessorio){
+    public void adicionarAcessorio(Long idVeiculo, Long idAcessorio){
         Veiculo veiculo = veiculoRepo.findById(idVeiculo)
                 .orElseThrow();
-        Acessorio acessorio = new Acessorio(nomeAcessorio);
+        Acessorio acessorio = acessorioRepo.findById(idAcessorio)
+                        .orElseThrow();
         veiculo.setAcessorio(acessorio);
     }
 

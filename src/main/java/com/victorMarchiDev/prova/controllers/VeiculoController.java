@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/veiculos")
 public class VeiculoController {
 
-    private VeiculoService service;
+    private final VeiculoService service;
 
     public VeiculoController(VeiculoService service) {
         this.service = service;
@@ -29,12 +29,12 @@ public class VeiculoController {
         return ResponseEntity.ok(veiculo);
     }
 
-    @PostMapping("/addAcessorio/{idVeiculo}")
+    @PostMapping("/addAcessorio/{idVeiculo}/{idAcessorio}")
     public ResponseEntity<String> adicionarAcessorio(
             @PathVariable Long idVeiculo,
-            @RequestBody String nomeAcessorio
+            @PathVariable Long idAcessorio
     ){
-        service.adicionarAcessorio(idVeiculo, nomeAcessorio);
+        service.adicionarAcessorio(idVeiculo, idAcessorio);
         return ResponseEntity.ok("Adicionado com sucesso!");
     }
 }
